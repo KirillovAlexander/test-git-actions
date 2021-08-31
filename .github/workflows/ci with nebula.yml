@@ -1,4 +1,4 @@
-name: CI with PaulHatch GitHub action
+name: CI with Nebula plugin
 
 on:
   push:
