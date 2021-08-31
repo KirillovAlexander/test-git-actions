@@ -1,4 +1,4 @@
-name: Delivery Client auto versioning
+name: Auto versioning
 
 on:
   push:
