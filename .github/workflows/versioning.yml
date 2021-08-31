@@ -28,14 +28,12 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
 
-      - name: Increment version with Nebula
-        run: ./gradlew final
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v4.0.2
 
-      - name: Publish to GitHub Packages
-        if: ${{ github.ref == 'refs/heads/master' }}
-        run:
-          ./gradlew publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Publish to GitHub Packages
+          if: ${{ github.ref == 'refs/heads/master' }}
+          run:
+            ./gradlew publish
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
