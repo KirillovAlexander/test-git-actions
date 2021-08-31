@@ -29,7 +29,7 @@ jobs:
           settings-path: ${{ github.workspace }}
 
       - name: Increment version with Nebula
-        run: ./gradlew final
+        run: ./gradlew build
 
       - name: Publish to GitHub Packages
         if: ${{ github.ref == 'refs/heads/master' }}
