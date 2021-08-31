@@ -1,13 +1,9 @@
-name: CI with Nebula plugin
+name: Nebula auto versioning
 
 on:
   push:
     branches:
-      - master
       - release/*
-  pull_request:
-    branches:
-      - master
 
 jobs:
   build:
@@ -15,8 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
       - name: Set up Gradle cache
         uses: actions/cache@v1
@@ -34,7 +28,7 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
 
-      - name: Build and increment version with Nebula
+      - name: Increment version with Nebula
         run: ./gradlew final
 
       - name: Publish to GitHub Packages
