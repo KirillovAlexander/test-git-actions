@@ -28,8 +28,5 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
 
-      - name: Build with Gradle
-        run: ./gradlew build
-
       - name: Increment version with Nebula
         run: ./gradlew final
